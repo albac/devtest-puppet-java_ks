@@ -1,15 +1,17 @@
 begin
   require 'os'
   require 'ptools'
+  require 'colored'
 rescue LoadError => e
   puts "Error during requires: \t#{e.message}"
-  abort "You may be able to fix this problem by running 'bundle'."
+  abort "You may be able to fix this problem by running 'bundle'.".red
 end
 
 task :default => 'deps'
 
 necessary_programs = %w(VirtualBox vagrant)
-necessary_plugins = %w(vagrant-auto_network vagrant-pe_build vagrant-vmware-fusion)
+necessary_plugins = %w(vagrant-auto_network vagrant-pe_build)
+blacklist_plugins = %w(vagrant-vmware-fusion vagrant-vmware-workstation)
 necessary_gems = %w(bundle)
 
 desc 'Check for the environment dependencies'
@@ -18,14 +20,14 @@ task :deps do
 
   printf "Is this a POSIX OS?..."
   unless OS.posix?
-    abort 'Sorry, you need to be running Linux or OSX to use this Vagrant environment!'
+    abort 'Sorry, you need to be running Linux or OSX to use this Vagrant environment!'.red
   end
   puts "OK"
  
   necessary_programs.each do |prog| 
     printf "Checking for %s...", prog
     unless File.which(prog)
-      abort "\nSorry but I didn't find require program \'#{prog}\' in your PATH.\n"
+      abort "\nSorry but I didn't find require program \'#{prog}\' in your PATH.\n".red
     end
     puts "OK"
   end
@@ -34,7 +36,16 @@ task :deps do
     printf "Checking for vagrant plugin %s...", plugin
     unless %x{vagrant plugin list}.include? plugin
       puts "\nSorry, I wasn't able to find the Vagrant plugin \'#{plugin}\' on your system."
-      abort "You may be able to fix this by running 'rake setup\'.\n"
+      abort "You may be able to fix this by running 'rake setup\'.\n".red
+    end
+    puts "OK"
+  end
+
+  blacklist_plugins.each do |plugin|
+    printf "Checking for absence of vagrant plugin %s...", plugin
+    if %x{vagrant plugin list}.include? plugin
+      puts "\nSorry, but #{plugin} is incompatible with this environment.".red
+      abort "\nYou may be able to rectify this situation via \"vagrant plugin uninstall #{plugin}\".".red
     end
     puts "OK"
   end
@@ -42,8 +53,8 @@ task :deps do
   necessary_gems.each do |gem|
     printf "Checking for Ruby gem %s...", gem
     unless system("gem list --local -q --no-versions --no-details #{gem} | egrep '^#{gem}$' > /dev/null 2>&1")
-      puts "\nSorry, I wasn't able to find the \'#{gem}\' gem on your system."
-      abort "You may be able to fix this by running \'gem install #{gem}\'.\n"
+      puts "\nSorry, I wasn't able to find the \'#{gem}\' gem on your system.".red
+      abort "You may be able to fix this by running \'gem install #{gem}\'.\n".red
     end
     puts "OK"
   end
@@ -52,6 +63,7 @@ task :deps do
   unless %x{bundle check}
     abort ''
   end
+
   puts "OK"
 
   puts "\n" 
@@ -65,13 +77,13 @@ desc 'Install the necessary Vagrant plugins'
 task :setup do
   necessary_plugins.each do |plugin|
     unless system("vagrant plugin install #{plugin} --verbose")
-      abort "Install of #{plugin} failed. Exiting..."
+      abort "Install of #{plugin} failed. Exiting...".red
     end
   end
 
   necessary_gems.each do |gem|
     unless system("gem install #{gem}")
-      abort "Install of #{gem} failed. Exiting..."
+      abort "Install of #{gem} failed. Exiting...".red
     end
   end
 
@@ -85,7 +97,7 @@ desc 'Build out the modules directory for devtest'
 task :modules do
   puts "Building out Puppet module directory..."
   unless system('cd puppet && librarian-puppet install --verbose')
-    abort 'Failed to build out Puppet module directory. Exiting...'
+    abort 'Failed to build out Puppet module directory. Exiting...'.red
   end
   puts "OK"
 end

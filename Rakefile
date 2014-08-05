@@ -13,6 +13,7 @@ necessary_programs = %w(VirtualBox vagrant puppet)
 necessary_plugins = %w(oscar vagrant-vbox-snapshot vagrant-pe_build)
 blacklist_plugins = %w(vagrant-vmware-fusion vagrant-vmware-workstation)
 necessary_gems = %w(librarian-puppet)
+ruby_major = '1.9'
 
 desc 'Check for the environment dependencies'
 task :deps do
@@ -48,6 +49,10 @@ task :deps do
       abort "\nYou may be able to rectify this situation via \"vagrant plugin uninstall #{plugin}\".".red
     end
     puts "OK"
+  end
+
+  unless %x{ruby --version}.include? ruby_major
+    abort "Sorry but Ruby version #{ruby_major}.x is required for librarian-puppet.".red
   end
 
   necessary_gems.each do |gem|

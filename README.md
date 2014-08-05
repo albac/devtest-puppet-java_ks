@@ -81,5 +81,5 @@ find yourself doing a lot of VM rebuilds then it is time to start investigating 
 
 ### For centralized automated testing
 * some form of [CI system]() 
-** [Jenkins](http://jenkinsci.org) is the most popular onsite solution.
-** [TravisCI](http://travisci.org) is a good place to start for cloud-base CI through most find they outgrow it quickly.
+  * [Jenkins](http://jenkinsci.org) is the most popular onsite solution.
+  * [TravisCI](http://travisci.org) is a good place to start for cloud-base CI through most find they outgrow it quickly.

@@ -35,8 +35,13 @@ $ rake deps
 
 ## Populating the environment with the desired Puppet modules
 The following command will use librarian-puppet to deploy the modules specified
-in puppet/Puppetfile into your puppet/modules directory. An examples Puppetfile, for instance
-for testing Presto Puppet module, might look something like this:
+in puppet/Puppetfile into your puppet/modules directory. 
+
+```bash
+$ rake modules
+```
+
+An examples Puppetfile, for instance for testing Presto Puppet module, might look something like this:
 
 ```yaml
 forge 'https://forge.puppetlabs.com'
@@ -80,10 +85,6 @@ mod 'vchs/vchs',
 mod 'vchs/presto',
   :git => 'git@git.vchslabs.vmware.com:vchs/puppet-presto',
   :ref => 'master'
-```
-
-```bash
-$ rake modules
 ```
 
 At this point you are ready to go into puppet/modules and start creating feature branches

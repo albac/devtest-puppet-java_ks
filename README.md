@@ -7,9 +7,9 @@ You'll need to have downloaded and installed the following:
 For additional dependencies and setup see the Install section below.
 
 # Install
-I highly recommend you look at the [rbenv](https://github.com/sstephenson/rbenv) for managing your 
+I highly recommend you look at [rbenv](https://github.com/sstephenson/rbenv) for managing your 
 account's Ruby environment a manor which is as sane as possible. Assuming you have either rbenv or
-rvm installed:
+rvm(not recommended) installed:
 
 ```sh-session
 $ gem install bundler
@@ -75,7 +75,7 @@ mod 'vchs/sphinx',
   :ref => 'vmware_v1.0.1'
 
 mod 'vchs/ntp',
-  :git => 'git@git.vchslabs.vmware.com:vchs/puppet-ntp',
+  :git => 'git@git.vchslabs.vmware.com:vchs/puppetlabs-ntp',
   :ref => '3.0.4'
 
 mod 'vchs/vchs',

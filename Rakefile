@@ -4,7 +4,7 @@ begin
   require 'colored'
 rescue LoadError => e
   puts "Error during requires: \t#{e.message}"
-  abort "You may be able to fix this problem by running 'bundler'.".red
+  abort "You may be able to fix this problem by running 'bundle'.".red
 end
 
 task :default => 'deps'
@@ -12,7 +12,7 @@ task :default => 'deps'
 necessary_programs = %w(VirtualBox vagrant)
 necessary_plugins = %w(vagrant-auto_network vagrant-pe_build)
 blacklist_plugins = %w(vagrant-vmware-fusion vagrant-vmware-workstation)
-necessary_gems = %w(bundle)
+necessary_gems = %w(bundler)
 
 desc 'Check for the environment dependencies'
 task :deps do

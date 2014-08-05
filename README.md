@@ -134,6 +134,6 @@ find yourself doing a lot of VM rebuilds then it is time to start investigating 
 
 The links below are repos which have been created using this module as a base:
 
-* [devtest-puppet-presto](https://git.vchslabs.vmware.com/vchs/puppet-presto)
-* [devtest-puppet-rbenv](https://git.vchslabs.vmware.com/vchs/puppet-rbenv)
-* [devtest-puppet-rails](https://git.vcshlabs.vmware.com/vchs/puppet-rails)
+* [devtest-puppet-presto](https://git.vchslabs.vmware.com/vchs/puppet-presto/tree/master)
+* [devtest-puppet-rbenv](https://git.vchslabs.vmware.com/vchs/puppet-rbenv/tree/master)
+* [devtest-puppet-rails](https://git.vcshlabs.vmware.com/vchs/puppet-rails/tree/master)

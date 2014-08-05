@@ -4,7 +4,7 @@ begin
   require 'colored'
 rescue LoadError => e
   puts "Error during requires: \t#{e.message}"
-  abort "You may be able to fix this problem by running 'bundle'.".red
+  abort "You may be able to fix this problem by running 'bundler'.".red
 end
 
 task :default => 'deps'

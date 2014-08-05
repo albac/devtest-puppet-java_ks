@@ -11,13 +11,13 @@ I highly recommend you look at the [rbenv](https://github.com/sstephenson/rbenv)
 account's Ruby environment a manor which is as sane as possible. Assuming you have either rbenv or
 rvm installed:
 
-```bash
+```shell
 $ gem install bundler
 $ bundle
 ```
 To check whether or not your system has all of the dependencies necessary to run the Vagrant environments:
 
-```bash
+```shell
 $ rake deps
 Checking environment dependencies...
 ...
@@ -26,7 +26,7 @@ Congratulations! Everything looks a-ok.
 
 If the above step fails, unless the output tells you to do something differently, I recommend running:
 
-```bash
+```shell
 $ rake setup
 $ rake deps
 ```
@@ -37,7 +37,7 @@ $ rake deps
 The following command will use librarian-puppet to deploy the modules specified
 in puppet/Puppetfile into your puppet/modules directory. 
 
-```bash
+```shell
 $ rake modules
 ```
 
@@ -95,7 +95,7 @@ __WARNING: Once you start development on your feature branches you DO NOT want t
 modules as librarian-puppet will attempt to completely rebuild the module directory!___
 
 ## Starting your test VM
-```bash
+```shell
 $ vagrant up
 $ vagrant ssh
 ```
@@ -103,7 +103,7 @@ $ vagrant ssh
 ## Running Puppet apply to test your new module code
 In the spawned VM, you can run 'puppet apply' against the smoketest scripts for your modules:
 
-```bash
+```shell
 $ sudo su -
 # puppet apply --modulepath=/vagrant/puppet/modules /vagrant/puppet/modules/<your module>/tests/init.pp --debug
 ```
@@ -111,7 +111,7 @@ $ sudo su -
 Note that the above command can be used to do multiple Puppet runs over a long-running VM. If you'd like to
 test on a fresh OS you rebuild the VM by logging out of the VM and:
 
-```bash
+```shell
 $ vagrant destroy -f
 $ vagrant up
 $ vagrant ssh

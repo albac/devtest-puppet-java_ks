@@ -6,3 +6,4 @@ puppet/.librarian
 puppet/modules
 puppet/.tmp
 Gemfile.lock
+.ruby_version

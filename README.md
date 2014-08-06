@@ -8,7 +8,7 @@ For additional dependencies and setup see the Usage section below.
 
 I highly recommend you look at [rbenv](https://github.com/sstephenson/rbenv) for managing your 
 account's Ruby environment in a manner which is as sane as possible. The environment relies on
-librarian-puppet which currently requires no later than Ruby 1.9.x. rbenv and rvm can help you
+librarian-puppet which currently requires no later than Ruby 1.9.x. rbenv can help you
 manage your Ruby versions and associated gems.
 
 # Usage
@@ -22,11 +22,11 @@ $ cd devtest-puppet-mymodule
 $ git remote set-url origin git@<gitserver>:<git namespace>/devtest-puppet-mymodule
 ```
 
-Assuming you have either rbenv or rvm(not recommended) installed:
+Assuming you have either rbenv installed:
 
 ```sh-session
 $ gem install bundler
-$ bundle
+$ bundle install && rbenv rehash
 ```
 To check whether or not your system has all of the dependencies necessary to run the Vagrant environments:
 

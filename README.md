@@ -8,8 +8,11 @@ For additional dependencies and setup see the Install section below.
 
 # Install
 I highly recommend you look at [rbenv](https://github.com/sstephenson/rbenv) for managing your 
-account's Ruby environment a manor which is as sane as possible. Assuming you have either rbenv or
-rvm(not recommended) installed:
+account's Ruby environment a manor which is as sane as possible. The environment relies on
+librarian-puppet which currently requires no later than Ruby 1.9.x. rbenv and rvm can help you
+manage your Ruby versions and associated gems.
+
+Assuming you have either rbenv or rvm(not recommended) installed:
 
 ```sh-session
 $ gem install bundler

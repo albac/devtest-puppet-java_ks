@@ -1,7 +1,7 @@
 # puppet-module-devtest-skeleton
 
 You'll need to have downloaded and installed the following:
-* [VirtualBox](http://www.virtualbox.com/wiki/Downloads)
+* [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 * [Vagrant](http://vagrantup.com/downloads.html)
 
 For additional dependencies and setup see the Usage section below.

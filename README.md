@@ -4,13 +4,23 @@ You'll need to have downloaded and installed the following:
 * VirtualBox
 * Vagrant
 
-For additional dependencies and setup see the Install section below.
+For additional dependencies and setup see the Usage section below.
 
-# Install
 I highly recommend you look at [rbenv](https://github.com/sstephenson/rbenv) for managing your 
-account's Ruby environment a manor which is as sane as possible. The environment relies on
+account's Ruby environment in a manner which is as sane as possible. The environment relies on
 librarian-puppet which currently requires no later than Ruby 1.9.x. rbenv and rvm can help you
 manage your Ruby versions and associated gems.
+
+# Usage
+Keep in mind this repo is a skeleton module so we are going to clone it, name it appropriately,
+and then change the remote origin so we can push the module-specific version of the repo somewhere
+where others may use it. In the example below we are creating a Puppet module called 'mymodule'
+
+```sh-session
+$ git clone git@<gitserver>:<git namespace>/<git repo> ./devtest-puppet-mymodule
+$ cd devtest-puppet-mymodule
+$ git remote set-url origin git@<gitserver>:<git namespace>/devtest-puppet-mymodule
+```
 
 Assuming you have either rbenv or rvm(not recommended) installed:
 
@@ -33,8 +43,6 @@ If the above step fails, unless the output tells you to do something differently
 $ rake setup
 $ rake deps
 ```
-
-# Usage
 
 ## Populating the environment with the desired Puppet modules
 The following command will use librarian-puppet to deploy the modules specified
@@ -95,7 +103,7 @@ for development of your Puppet modules.
 
 __WARNING: Once you start development on your feature branches you DO NOT want to run
 'rake modules' again or you will almost certainly lose the work you have done on the Puppet
-modules as librarian-puppet will attempt to completely rebuild the module directory!___
+modules as librarian-puppet will attempt to completely rebuild the module directory!__
 
 ## Starting your test VM
 ```sh-session

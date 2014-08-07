@@ -106,8 +106,26 @@ __WARNING: Once you start development on your feature branches you DO NOT want t
 modules as librarian-puppet will attempt to completely rebuild the module directory!__
 
 ## Starting your test VM
+Vagrant will automagically create the VM, start the VM, and install the Puppet Enterprise
+agent via the following command:
+
 ```sh-session
 $ vagrant up
+```
+
+The PE agent install can take a few minutes due to needing to pull the PE tarball down
+from the Internet so I recommend taking a snapshot after a successful 'vagrant up':
+
+```sh-session
+$ vagrant snapshot take fresh
+```
+
+You can take multiple snaphots as you are doing testing and can restore to the appropriate
+snapshot with the 'vagrant snapshot list' and 'vagrant snapshot go <snapshot name>' commands.
+
+To connect login to the VM:
+
+```sh-session
 $ vagrant ssh
 ```
 

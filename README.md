@@ -64,38 +64,6 @@ mod 'puppetlabs/inifile', '1.0.3'
 mod 'puppetlabs/apache',
   :git => 'git@git.vchslabs.vmware.com:vchs/puppetlabs-apache',
   :ref => 'master'
-
-mod 'vchs/epel',
-  :git => 'git@git.vchslabs.vmware.com:vchs/puppet-module-epel',
-  :ref => '0.0.6'
-
-mod 'vchs/multi_validate_re',
-  :git => 'git@git.vchslabs.vmware.com:vchs/puppet-multi_validate_re',
-  :ref => 'v0.1.0'
-
-mod 'vchs/rbenv',
-  :git => 'git@git.vchslabs.vmware.com:vchs/puppet-rbenv',
-  :ref => 'v1.0.0'
-
-mod 'vchs/rails',
-  :git => 'git@git.vchslabs.vmware.com:vchs/puppet-rails',
-  :ref => 'v1.0.0'
-
-mod 'vchs/sphinx',
-  :git => 'git@git.vchslabs.vmware.com:vchs/puppet-sphinx',
-  :ref => 'vmware_v1.0.1'
-
-mod 'vchs/ntp',
-  :git => 'git@git.vchslabs.vmware.com:vchs/puppetlabs-ntp',
-  :ref => '3.0.4'
-
-mod 'vchs/vchs',
-  :git => 'git@git.vchslabs.vwmare.com:vchs/puppet-vchs',
-  :ref => 'master'
-
-mod 'vchs/presto',
-  :git => 'git@git.vchslabs.vmware.com:vchs/puppet-presto',
-  :ref => 'master'
 ```
 
 At this point you are ready to go into puppet/modules and start creating feature branches
@@ -158,11 +126,3 @@ find yourself doing a lot of VM rebuilds then it is time to start investigating 
 * some form of [CI system]() 
   * [Jenkins](http://jenkinsci.org) is the most popular onsite solution.
   * [TravisCI](http://travisci.org) is a good place to start for cloud-base CI through most find they outgrow it quickly.
-
-# Additional resources
-
-The links below are repos which have been created using this module as a base:
-
-* [devtest-puppet-presto](https://git.vchslabs.vmware.com/vchs/devtest-puppet-presto/tree/master)
-* [devtest-puppet-rbenv](https://git.vchslabs.vmware.com/vchs/devtest-puppet-rbenv/tree/master)
-* [devtest-puppet-rails](https://git.vchslabs.vmware.com/vchs/devtest-puppet-rails/tree/master)
